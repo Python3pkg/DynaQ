@@ -1,0 +1,9 @@
+# type definitions for current application
+#
+---
+type    : types
+version :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+types : 
+ - [idprd, char, length: 20]

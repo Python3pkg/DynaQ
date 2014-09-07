@@ -1,0 +1,5 @@
+# database definition
+--- 
+type : db
+tables:
+ - !include measures.yml

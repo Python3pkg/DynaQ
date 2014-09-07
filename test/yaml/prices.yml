@@ -1,0 +1,22 @@
+---
+type     : table
+name     : prices
+alias    : prc
+kind     : child
+title    : Prices of products
+version  : 
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [id,       idint,     Price ID]
+ - [id_prd,   =prd,      Product ID, child: true]
+ - [id_lst,   =lst,      Prices list ID, child: true]
+ - [id_sbj,   =sbj,      Customer ID, child: true]
+ - [price,    price,     Price per unit]
+ - [discount, discount,  Discount rates]
+
+indexes :
+ - [primary, id,              Price ID]
+ - [id_prd,  [id_prd,id_lst], Product]
+ - [id_lst,  [id_lst,id_prd], List]
+ - [id_sbj,  [id_sbj,id_prd], customer]

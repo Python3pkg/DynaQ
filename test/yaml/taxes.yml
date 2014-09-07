@@ -1,0 +1,16 @@
+---
+type     : table
+name     : taxes
+alias    : tax
+kind     : tab
+title    : Taxes rates
+version  :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [id,          idchar,  Tax ID]
+ - [description, vshort,  Description]
+ - [rate,        percent, Tax rate]
+ - [kind,        choices, Applicable kind, list: taskind]
+
+

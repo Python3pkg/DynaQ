@@ -1,0 +1,16 @@
+---
+type     : table
+name     : measures
+alias    : msr
+kind     : anag
+title    : List products prices
+version  :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [id,        idint,    measure ID]
+ - [id_prd,    =prd,     Product ID, child: true]
+ - [height,    integer,  Height]
+ - [width,     integer,  Width]
+ - [thickness, integer,  Thickness]
+ 

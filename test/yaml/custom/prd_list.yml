@@ -1,0 +1,19 @@
+---
+type     : table
+name     : prd_list
+alias    : lst
+kind     : tab
+title    : List products prices
+version  :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [id,          idint,        List products ID]
+ - [description, description,  Description]
+ - [notes,       text,         Memo notes]
+
+indexes :
+ - [primary, id, List products ID]
+
+help: >
+ This is a modified table definition

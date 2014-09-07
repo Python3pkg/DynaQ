@@ -1,0 +1,21 @@
+# common used derivate types
+--- 
+type    : types
+version :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+types :
+ - [discount, percent, {array: 5, default: 0.0}]
+ - [address, fields: [
+    [street, description, Street and number],
+    [zip, char, Zip code, length: 5],
+    [city, description, City],
+    [state, varchar, State, length: 32]
+   ]]
+
+help:
+ types.address : >
+  Insert the address of the subject.
+
+rem:
+rem:

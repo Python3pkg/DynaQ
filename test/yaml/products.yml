@@ -1,0 +1,23 @@
+---
+type     : table
+name     : products
+alias    : prd
+kind     : anag
+title    : Products
+version  :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [id,          idprd,        Product ID]
+ - [description, description,  Description]
+ - [id_lst,      =lst,         Prices list]
+ - [dgroup,      choices,      Discount group, list: prdgrp]
+ - [measureunit, vshort,       Measure unit, length: 5]
+
+indexes :
+ - [description, description, Description]
+
+properties:
+ fields:
+  - [description, length, 128]
+  - [description, nullable, false]

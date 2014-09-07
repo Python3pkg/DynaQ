@@ -1,0 +1,15 @@
+---
+type     : table
+name     : customers
+alias    : cst
+inherit  : sbj
+color    : blue  # test abstract property
+kind     : anag
+title    : Customers 
+version  :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [dgroup,  choices,   Discount group, list: sbjgrp]
+ - [payment, idchar,   Payment method]
+ - [bank,    char,     Bank id, lenght: 20]

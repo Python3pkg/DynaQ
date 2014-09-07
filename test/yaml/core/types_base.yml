@@ -1,0 +1,46 @@
+# types definition
+--- 
+type    : types
+version :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+types :
+ # base types resolved at database level
+ - [integer]
+ - [autoinc]
+ - [bool]
+ - [char]
+ - [varchar]
+ - [blob]
+ - [text]
+ - [date]
+ - [datetime]
+ - [numeric]
+ - [float]
+
+ # common derivate types
+ - [idint, integer]
+ - [auto, autoinc]
+ - [idchar, char, 5]
+ - [idname, char, 20]
+ - [vshort, varchar, 32]
+ - [description, varchar, 64]
+ - [company, description]
+ - [name, description]
+ - [money, numeric, 9, 2]
+ - [price, money, 9, 4]
+ - [currency, money, 5, 5]
+ - [percent, numeric, 3, 2]
+ - [quantity, numeric, 7, 3]
+ - [choices, char, 1]
+ - [rtf, text]
+ - [html, text]
+ - [today, date]
+ - [now, datetime]
+
+properties:
+ types:
+  - [today, default, now]
+  - [now, default, now]
+  - [description, description, true]
+  - [description, nullable, False]

@@ -1,0 +1,23 @@
+---
+type     : table
+name     : ord_rows
+alias    : row
+kind     : child
+title    : Orders rows
+version  :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [id,       idint,     Row ID]
+ - [id_ord,   =ord,      Order, child: true]
+ - [n_order,  integer,   Rows order]
+ - [id_prd,   =prd,      Product ID]
+ - [qt,       quantity,  Quantity]
+ - [price,    price,     Price per unit]
+ - [discount, discount,  Discount levels]
+ - [id_tax,   =tax,      Taxes ID]
+
+indexes :
+ - [primary, id, Row ID]
+ - [id_ord, [id_ord, n_order],  Order]
+

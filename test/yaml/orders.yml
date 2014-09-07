@@ -1,0 +1,19 @@
+---
+type     : table
+name     : orders
+alias    : ord
+kind     : mov
+title    : Orders
+version  :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [id,     idint,     Order ID]
+ - [id_sbj, =sbj,      Customer code]
+ - [d_doc,  datetime,  Date]
+ - [n_doc,  integer,   Number]
+
+indexes :
+ - [primary, id,       Order ID]
+ - [date,    d_doc,     Date, ascending: True]
+ - [custdoc, [id_sbj, d_doc, n_doc], Customer and date]

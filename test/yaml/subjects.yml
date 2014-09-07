@@ -1,0 +1,21 @@
+---
+type     : table
+name     : subjects
+alias    : sbj
+kind     : anag
+usrfld   : True
+title    : Subjects
+version  :
+ - [0, 0, 0, 2000-01-01, 'Starting release']
+
+fields :
+ - [id,     idint,     Subject ID]
+ - [kind,   choices,   Kind of subject, list: sbjkind]
+ - [name,   name,      Name, nullable: False]
+ - [add_,   address,   Address]
+ - [notes,  text,      Memo notes]
+
+indexes :
+ - [primary,   id,        Subject ID]
+ - [kind,      kind,      Kind of subject]
+ - [name,      name,      Name]
