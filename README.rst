@@ -80,6 +80,9 @@ A user flendly DB system need an automatic restructure facility for simple
 adding or deleting of fields, Alembic provide all API to do this for simple
 situations.
 
+DynaQ is a part of bigger project which will be a complete framework for the
+development of business application in web environment that act as desktop 
+replacement. ASAP I will publish links to the other parts of project.
 
 Are you interested?
 -------------------
