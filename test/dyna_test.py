@@ -82,14 +82,14 @@ if __name__ == '__main__':
     s.add(x)
     s.commit()
     id = x.id
-    print x
-    print x.cost
-    print x.addresses
+    print(x)
+    print(x.cost)
+    print(x.addresses)
 
     # count created records
     usr = d['usr']
-    print s.query(usr).filter_by(fullname='io').count()
-    print s.query(d['adr']).filter_by(user_id=id).count()
+    print(s.query(usr).filter_by(fullname='io').count())
+    print(s.query(d['adr']).filter_by(user_id=id).count())
 
     # delete with cascade effect
     x = s.query(usr).filter_by(fullname='io').one()
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     s.commit()
 
     # count remaining records
-    print s.query(usr).filter_by(fullname='io').count()
-    print s.query(d['adr']).filter_by(user_id=id).count()
-    print d['usr'].id.key
-    print d['usr'].__dqt__
+    print(s.query(usr).filter_by(fullname='io').count())
+    print(s.query(d['adr']).filter_by(user_id=id).count())
+    print(d['usr'].id.key)
+    print(d['usr'].__dqt__)

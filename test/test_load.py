@@ -27,10 +27,10 @@ class LoadTest(unittest.TestCase):
 
     def test_loader(self):
         # yaml dict has types and tables
-        self.failUnless(self.yaml.has_key('types'))
-        self.failUnless(self.yaml.has_key('tables'))
+        self.failUnless('types' in self.yaml)
+        self.failUnless('tables' in self.yaml)
         # a table file has the key 'type' which identify the type of file
-        self.failUnless(self.yaml['tables'][0].has_key('type'))
+        self.failUnless('type' in self.yaml['tables'][0])
 
     def test_db_yaml(self):
         # instantiate a Database class and load the yaml files
@@ -48,12 +48,12 @@ class LoadTest(unittest.TestCase):
 
         # some types assertions, see yaml files
         self.failUnless(db.types)
-        self.failUnless(db.types['today'].properties.has_key('default'))
+        self.failUnless('default' in db.types['today'].properties)
         self.failUnless(db.types['today'].get('default'))
         self.failUnless(db.types['currency'].sa_type == sa.Numeric)
         self.failUnless(db.types['price'].get('decimals'))
         self.failUnless(db.types['mytype'].length == 10)
-        self.failUnless(db.types['name'].properties.has_key('description'))
+        self.failUnless('description' in db.types['name'].properties)
 
         # fields in tables
         # measure custom table
@@ -62,21 +62,21 @@ class LoadTest(unittest.TestCase):
         self.failUnless('name' in db.tables['sbj'].fnames)
         self.failUnless('discount01' in db.tables['prc'].fnames)
         self.failUnless('add_street' in db.tables['sbj'].fnames)
-        self.failUnless(db.tables['prd'].fnames['description'].properties.has_key('length'))
-        self.failUnless(db.tables['cst'].properties.has_key('color'))
+        self.failUnless('length' in db.tables['prd'].fnames['description'].properties)
+        self.failUnless('color' in db.tables['cst'].properties)
 
         # indexes in tables
         # some indexes assertions
-        self.failUnless(db.tables['tax'].inames.has_key('primary'))
-        self.failUnless(db.tables['prd'].inames.has_key('primary'))
-        self.failUnless(db.tables['ord'].inames['date'].properties.has_key('ascending'))
+        self.failUnless('primary' in db.tables['tax'].inames)
+        self.failUnless('primary' in db.tables['prd'].inames)
+        self.failUnless('ascending' in db.tables['ord'].inames['date'].properties)
         self.failUnless(isinstance(db.tables['ord'].fnames['id_sbj'].type, dq.Table))
 
         # user fields
-        self.failUnless(db.tables['sbj'].properties.has_key('usrfld'))
-        self.failUnless(db.tables['prd'].properties.has_key('usrfld'))
-        self.failUnless(db.tables.has_key('sbj_uf'))
-        self.failUnless(db.tables.has_key('prd_uf'))
+        self.failUnless('usrfld' in db.tables['sbj'].properties)
+        self.failUnless('usrfld' in db.tables['prd'].properties)
+        self.failUnless('sbj_uf' in db.tables)
+        self.failUnless('prd_uf' in db.tables)
         self.failUnless(isinstance(db.tables['sbj_uf'].fnames['id_sbj'].type, dq.Table))
 
 

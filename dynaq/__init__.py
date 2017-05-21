@@ -8,7 +8,7 @@
 #
 
 # from db import *
-from db import *
-from workspace import *
-import utils
+from .db import *
+from .workspace import *
+from . import utils
 

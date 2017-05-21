@@ -40,7 +40,7 @@ class WorkSpace(object):
         """
         # build objects
         self.tables = {}
-        for table in self.db.tables.values():
+        for table in list(self.db.tables.values()):
             self.tables[table.alias] = \
                 type(table.name.capitalize(),(self.Base,),
                      self._set_table(table, prefix, pref_tabels, defaults))
@@ -131,7 +131,7 @@ class WorkSpace(object):
         :return: the container object
         """
         t = {}
-        for k,v in self.tables.items():
+        for k,v in list(self.tables.items()):
             t[k] = v
         return type('WSO', (object,), t)
 

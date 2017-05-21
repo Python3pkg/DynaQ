@@ -108,7 +108,7 @@ class Database(PropContainer):
         if not self.name:
             self.name = data['name']
         # skip handled properties
-        for k,v in data.items():
+        for k,v in list(data.items()):
             if k in ['type', 'name', 'types', 'tables', 'properties']:
                 continue
             self.properties[k] = v
@@ -165,7 +165,7 @@ class Database(PropContainer):
 
         :return: None
         """
-        for k, v in self.types.items():
+        for k, v in list(self.types.items()):
             def _set_type(t, tb=None):
                 if t.fields:
                     return
@@ -179,7 +179,7 @@ class Database(PropContainer):
                         t.length = tb.length
                     if not t.fields:
                         t.fields = tb.fields
-                    for k, v in tb.properties.items():
+                    for k, v in list(tb.properties.items()):
                         if not k in t.properties:
                             t.properties[k] = v
 
@@ -223,7 +223,7 @@ class Database(PropContainer):
         """
         # user fields generation
         uf = []
-        for k,v in self.tables.items():
+        for k,v in list(self.tables.items()):
             if v.properties.get(USRFLD_KEY,False):
                 d = {'type': 'table',
                      'name': '%s_%s' % (v.name, USRFLD_KEY) ,
@@ -246,7 +246,7 @@ class Database(PropContainer):
         # resolve relations.
         # at the moment primary keys uses only one column, maybe in the
         # future we will add logic to handle multiple columns primary keys
-        for k,v in self.tables.items():
+        for k,v in list(self.tables.items()):
             for f in v.fields:
                 if type(f.type) is str:
                     f.type = self.tables[f.type[1:]]
@@ -342,7 +342,7 @@ class Table(PropContainer):
         :return: None
         """
         # skip handled properties
-        for k,v in data.items():
+        for k,v in list(data.items()):
             if k in ['type', 'name', 'alias', 'fields', 'indexes', 'properties']:
                 continue
             self.properties[k] = v
